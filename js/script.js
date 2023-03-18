@@ -17,13 +17,19 @@ playButton.addEventListener("click", function () {
 /////////////////////
 // FUNCTIONS
 /**
- * Description genero un grid item, ossia un box da inserire nella griglia
+ * Description Genero un grid item, ossia un box da inserire nella griglia
  * @param {number} indexNumber
  * @returns {element} newBox
  */
 function generateGridItem(indexNumber) {
     const newBox = document.createElement("div");
+    const number = indexNumber;
     newBox.classList.add("grid-item");
-    newBox.innerHTML = indexNumber;
+    newBox.innerHTML = number;
+    // Al click sul box si avvia la funzione handleClick, la quale aggiunge al box la classe che colora il background
+    newBox.addEventListener("click", function handleClick() {
+        this.classList.add("box-clicked"); 
+        console.log("Numero del box cliccato: ", number);
+    });
     return newBox;
 }

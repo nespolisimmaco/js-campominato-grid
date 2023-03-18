@@ -32,6 +32,7 @@ header {
     padding: 1rem;
 }
 
+/* Play button */
 .play-button {
     padding: 5px 25px;
     border-radius: 5px;
@@ -54,6 +55,7 @@ header {
     margin: 0 auto;
 }
 
+/* ----- Grid ----- */
 .grid {
     height: 1000px;
     width: 100%;
@@ -69,6 +71,11 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.box-clicked {
+    background-color: #87BCDE;
 }
 
 /* ********** FOOTER ********** */
@@ -77,4 +84,8 @@ footer {
     background-color: #805E73;
     line-height: var(--footer-height);
     padding-left: 1rem;
+}
+
+footer a {
+    color: #F7EE7F;
 }
