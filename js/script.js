@@ -14,8 +14,7 @@ const difficultySelect = document.getElementById("level");
 console.log(difficultySelect);
 let difficultyLevel = "easy";
 let numberOfBoxes = 100;
-// Quando clicco sulla difficolta -----> difficultyLevelChoice
-difficultySelect.addEventListener("click", difficultyLevelChoice);
+
 // L'utente clicca sul bottone per generare la griglia di gioco
 const playButton = document.querySelector(".play-button");
 console.log(playButton);
@@ -24,6 +23,7 @@ playButton.addEventListener("click", function () {
     const grid = document.querySelector(".grid");
     // Svuoto l'elemento grid (nel caso in cui già contenga i box)
     grid.innerHTML = "";
+    difficultyLevelChoice();
     for (let i = 1; i <= numberOfBoxes; i++) {
         const box = generateGridItem(i);
         grid.append(box);
@@ -49,10 +49,7 @@ function generateGridItem(indexNumber) {
     }
     newBox.innerHTML = number;
     // Al click sul box si avvia la funzione handleClick, la quale aggiunge al box la classe che colora il background
-    newBox.addEventListener("click", function handleClick() {
-        this.classList.add("box-clicked"); 
-        console.log("Numero del box cliccato: ", number);
-    });
+    newBox.addEventListener("click", handleClick);
     return newBox;
 }
 
@@ -70,4 +67,14 @@ function difficultyLevelChoice() {
     } else if (difficultyLevel === "hard") {
         numberOfBoxes = 49;
     }
+}
+
+/**
+ * Description aggiunge al box la classe che colora il background, e stampa in console il nunero del box cliccato
+ * @returns {any}
+ */
+function handleClick() {
+    this.classList.add("box-clicked");
+    const boxNumber = parseInt(this.innerText);
+    console.log("Numero del box cliccato: ", boxNumber);
 }
